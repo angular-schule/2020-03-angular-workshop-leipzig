@@ -2,11 +2,22 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { FooComponent } from './foo/foo.component';
+import { BazComponent } from './baz/baz.component';
+import { BarComponent } from './bar/bar.component';
 
 
 const routes: Routes = [
   { path: 'books', component: DashboardComponent },
-  { path: 'books/:isbn', component: BookDetailsComponent }
+  {
+    path: 'books/:isbn',
+    component: BookDetailsComponent,
+    children: [
+      { path: 'foo', component: FooComponent },
+      { path: 'bar', component: BarComponent },
+      { path: 'baz', component: BazComponent }
+    ]
+  }
 ];
 
 @NgModule({
