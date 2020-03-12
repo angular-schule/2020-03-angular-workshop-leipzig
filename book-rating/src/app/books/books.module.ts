@@ -8,6 +8,9 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { FooComponent } from './foo/foo.component';
 import { BarComponent } from './bar/bar.component';
 import { BazComponent } from './baz/baz.component';
+import { SearchComponent } from './search/search.component';
+import { BookCreateComponent } from './book-create/book-create.component';
+import { BookFormComponent } from './book-form/book-form.component';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { BazComponent } from './baz/baz.component';
     BookDetailsComponent,
     FooComponent,
     BarComponent,
-    BazComponent
+    BazComponent,
+    SearchComponent,
+    BookCreateComponent,
+    BookFormComponent
   ],
   imports: [
     CommonModule,

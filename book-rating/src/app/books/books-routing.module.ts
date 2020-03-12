@@ -5,10 +5,14 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { FooComponent } from './foo/foo.component';
 import { BazComponent } from './baz/baz.component';
 import { BarComponent } from './bar/bar.component';
+import { BookCreateComponent } from './book-create/book-create.component';
+import { SearchComponent } from './search/search.component';
 
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
+  { path: 'create', component: BookCreateComponent },
+  { path: 'search', component: SearchComponent },
   {
     path: ':isbn',
     component: BookDetailsComponent,
