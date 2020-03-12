@@ -22,9 +22,6 @@ import { BazComponent } from './baz/baz.component';
   imports: [
     CommonModule,
     BooksRoutingModule
-  ],
-  exports: [
-    DashboardComponent
   ]
 })
 export class BooksModule { }
