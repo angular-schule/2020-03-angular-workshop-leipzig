@@ -8,9 +8,9 @@ import { BarComponent } from './bar/bar.component';
 
 
 const routes: Routes = [
-  { path: 'books', component: DashboardComponent },
+  { path: '', component: DashboardComponent },
   {
-    path: 'books/:isbn',
+    path: ':isbn',
     component: BookDetailsComponent,
     children: [
       { path: 'foo', component: FooComponent },
