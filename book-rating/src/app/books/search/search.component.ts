@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { filter, debounceTime, switchMap } from 'rxjs/operators';
+import { BookStoreService } from '../shared/book-store.service';
+import { Book } from '../shared/book';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'br-search',
@@ -8,14 +12,20 @@ import { FormControl } from '@angular/forms';
 })
 export class SearchComponent implements OnInit {
 
+  result$: Observable<Book[]>;
+
   searchControl: FormControl;
 
-  constructor() { }
+  constructor(private bs: BookStoreService) { }
 
   ngOnInit(): void {
     this.searchControl = new FormControl('');
-    this.searchControl.valueChanges
-      .subscribe(e => console.log(e));
+
+    this.result$ = this.searchControl.valueChanges.pipe(
+      filter((term: string) => term.length >= 3),
+      debounceTime(1000),
+      switchMap(term => this.bs.search(term))
+    );
 
     // Suchbegriff muss mindestens 3 Zeichen lang sein
     // Suchbegriff erst abschicken, wenn Nutzer Finger still hält

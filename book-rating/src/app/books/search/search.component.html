@@ -1,1 +1,9 @@
 <input class="form-control" [formControl]="searchControl">
+
+
+<!--<ng-container *ngIf="result$ | async as books"></ng-container>-->
+
+
+<ul>
+  <li *ngFor="let b of result$ | async">{{ b.title }}</li>
+</ul>
