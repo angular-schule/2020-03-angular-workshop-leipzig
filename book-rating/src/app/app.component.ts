@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable, of, from, timer, interval } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'br-root',
@@ -12,27 +13,36 @@ export class AppComponent {
   constructor() {
 
     function producer(o) {
-      o.next(1);
-      o.next(2);
-
-      setTimeout(() => o.next(3), 2000);
-      setTimeout(() => o.complete(), 3000);
+      console.log('Hallo');
+      const foo = 1 + 1;
+      o.next(foo);
+      setTimeout(() => {
+        o.next('Welt');
+      }, 2000);
     }
+
 
     const myObservable$ = new Observable(producer);
 
 
-    const obs = {
+    const subscriber = {
       next: e => console.log(e),
       error: err => console.error(err),
       complete: () => console.log('Chemnitz')
     };
 
-    // producer(obs);
+    // producer(subscriber);
 
 
     // const myObs$ = interval(500);
     // myObs$.subscribe(obs);
+
+    interval(1000).pipe(
+      map(e => e * 100),
+      filter(e => e > 500)
+    ).subscribe(e => console.log(e));
+
+    // import { map } from 'rxjs/operators';
 
   }
 

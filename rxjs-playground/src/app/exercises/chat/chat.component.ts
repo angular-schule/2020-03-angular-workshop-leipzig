@@ -34,6 +34,16 @@ export class ChatComponent implements OnInit {
      * - forkJoin (When all observables complete, emit the last emitted value from each.)
      */
 
+    forkJoin([
+      this.msg.julia$,
+      this.msg.georg$,
+      this.msg.john$
+    ]).subscribe(
+      msg => this.log(msg),
+      () => {},
+      () => this.log('All members left')
+    );
+
 
     /******************************/
   }
