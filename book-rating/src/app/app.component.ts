@@ -40,7 +40,7 @@ export class AppComponent {
     interval(1000).pipe(
       map(e => e * 100),
       filter(e => e > 500)
-    ).subscribe(e => console.log(e));
+    )//.subscribe(e => console.log(e));
 
     // import { map } from 'rxjs/operators';
 

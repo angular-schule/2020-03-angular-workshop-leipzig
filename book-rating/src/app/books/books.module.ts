@@ -12,6 +12,7 @@ import { BazComponent } from './baz/baz.component';
 import { SearchComponent } from './search/search.component';
 import { BookCreateComponent } from './book-create/book-create.component';
 import { BookFormComponent } from './book-form/book-form.component';
+import { CounterComponent } from './counter/counter.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { BookFormComponent } from './book-form/book-form.component';
     BazComponent,
     SearchComponent,
     BookCreateComponent,
-    BookFormComponent
+    BookFormComponent,
+    CounterComponent
   ],
   imports: [
     CommonModule,

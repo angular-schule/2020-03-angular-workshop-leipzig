@@ -7,12 +7,14 @@ import { BazComponent } from './baz/baz.component';
 import { BarComponent } from './bar/bar.component';
 import { BookCreateComponent } from './book-create/book-create.component';
 import { SearchComponent } from './search/search.component';
+import { CounterComponent } from './counter/counter.component';
 
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'create', component: BookCreateComponent },
   { path: 'search', component: SearchComponent },
+  { path: 'counter', component: CounterComponent },
   {
     path: ':isbn',
     component: BookDetailsComponent,
