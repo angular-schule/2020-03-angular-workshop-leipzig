@@ -13,6 +13,10 @@ import { SearchComponent } from './search/search.component';
 import { BookCreateComponent } from './book-create/book-create.component';
 import { BookFormComponent } from './book-form/book-form.component';
 import { CounterComponent } from './counter/counter.component';
+import { StoreModule } from '@ngrx/store';
+import * as fromBook from './store/book.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { BookEffects } from './store/book.effects';
 
 
 @NgModule({
@@ -31,7 +35,9 @@ import { CounterComponent } from './counter/counter.component';
   imports: [
     CommonModule,
     BooksRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forFeature(fromBook.bookFeatureKey, fromBook.reducer),
+    EffectsModule.forFeature([BookEffects])
     // import { ReactiveFormsModule } from '@angular/forms';
   ]
 })
